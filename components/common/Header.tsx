@@ -24,7 +24,7 @@ const Header = () => {
               <div className="text-[32px] material-symbols-outlined mr-2">
                 school
               </div>
-              <div className="text-2xl font-extrabold">Self-Learning</div>
+              <div className="text-2xl font-extrabold whitespace-nowrap">Self-Learning</div>
             </a>
 
             <div className="flex pl-12 h-full mr-4">
@@ -50,9 +50,9 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="flex gap-2">
+          {/* <div className="flex gap-2">
             <a href="/profile">
-              <div className=" text-[14px] border-b-2 border-yellow-300 pb-[2px]">
+              <div className=" text-[14px] border-b-2 border-yellow-300 pb-[2px] whitespace-nowrap">
                 Hoang Nhut
               </div>
             </a>
@@ -60,7 +60,7 @@ const Header = () => {
             <div className="material-symbols-outlined text-2xl cursor-pointer">
               account_circle
             </div>
-          </div>
+          </div> */}
         </div>
       </Container>
     </div>
