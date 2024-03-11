@@ -20,9 +20,9 @@ export default function Practice() {
       <Container>
         <Title title={`Practice`}/>
         <div className="flex flex-col">
-        {practices.map(practice => {
+        {practices.map((practice, index) => {
           return (
-            <div  className="p-[0.5rem] pl-[1rem] border-b-2 text-[#0d6efd]"
+            <div key={index}  className="p-[0.5rem] pl-[1rem] border-b-2 text-[#0d6efd]"
             >
               <a href={`/practice/${practice.id}`}>
                 {practice.name}

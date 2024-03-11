@@ -28,13 +28,13 @@ const Header = () => {
             </a>
 
             <div className="flex pl-12 h-full mr-4">
-              {headerItems.map((item) => {
+              {headerItems.map((item, index) => {
                 const itemClass = classNames({
                   "flex flex-col justify-center px-4 h-full hover:text-[#61dafb] cursor-pointer": true,
                   "bg-[#111419] text-[#FAC850]": item.isSelected,
                 });
                 return (
-                  <div className={itemClass}>
+                  <div  key={index} className={itemClass}>
                     <a href={item.href}>{item.label}</a>
                   </div>
                 );

@@ -1,7 +1,6 @@
 import React from "react";
-import { EStatusPracticeTOEICPart5, IPracticeTOEICPart5 } from "../page";
 import { EAnswer } from "@/inteface/TOEIC";
-
+import { IPracticeTOEICPart5 } from "@/inteface/flashcard"
 interface FlashcardTOEICPart5Props {
   part5: IPracticeTOEICPart5,
   onPressAnswer: (answer: EAnswer) => void,
