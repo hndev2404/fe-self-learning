@@ -1,4 +1,7 @@
+'use client'
+
 import React from "react";
+import { usePathname } from 'next/navigation'
 import Container from "./Container";
 import classNames from "classnames";
 
@@ -8,11 +11,12 @@ interface IHeaderItem {
   isSelected: boolean;
 }
 const Header = () => {
+  const pathname = usePathname();
 
   const headerItems: IHeaderItem[] = [
-    { label: "TOEIC", href: "/toeic", isSelected: true },
-    { label: "IPA", href: "/ipa", isSelected: false },
-    { label: "Technical", href: "/technical", isSelected: false },
+    // { label: "TOEIC",  href: "/toeic", isSelected: pathname == "/toeic" },
+    // { label: "IPA", href: "/ipa", isSelected: pathname == "/ipa" },
+    // { label: "Technical", href: "/technical", isSelected: pathname == "/technical" },
   ];
 
   return (

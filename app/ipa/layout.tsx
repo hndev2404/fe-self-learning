@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DetailPracticeLayout({
+export default function IPALayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
