@@ -1,5 +1,5 @@
 import { IJSONSelect } from "@/interfaces/flashcard";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MDEditor from "@uiw/react-md-editor";
 import Question from "@/components/flashcard/Question"
 
@@ -11,6 +11,12 @@ export interface IFlashcardProps {
 const FlashCardSelectType = (props: IFlashcardProps) => {
   const [answer, setAnswer] = useState("");
 
+  useEffect(() => {
+    if (!props.isShowAnswer) {
+      setAnswer("")
+    }
+  }, [props.isShowAnswer])
+  
   const Answer = () => {
     if (!answer) return <></>
   
@@ -26,7 +32,7 @@ const FlashCardSelectType = (props: IFlashcardProps) => {
     return (
       <div className="text-left">
         <Question question={props.data.question}/>
-        <div className="grid grid-cols-2 gap-2 w-fit">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-fit">
         {props.data.options.map((option, index) => {
           return (
             <div
