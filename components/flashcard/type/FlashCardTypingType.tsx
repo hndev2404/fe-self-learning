@@ -1,7 +1,7 @@
 import { IJSONTyping } from "@/interfaces/flashcard";
 import React, { useState } from "react";
 import MDEditor from "@uiw/react-md-editor";
-
+import Question from "@/components/flashcard/Question"
 export interface IFlashcardProps {
   data: IJSONTyping;
   isShowAnswer: boolean;
@@ -10,23 +10,21 @@ export interface IFlashcardProps {
 const FlashCardTypingType = (props: IFlashcardProps) => {
   const Front = () => {
     return (
-      <>
-        <div className="text-left mb-4">
-          <MDEditor.Markdown source={props.data.question} />
-        </div>
+      <div>
+        <Question question={props.data.question}/>
         <textarea
           id="myTextarea"
           rows={10}
           className="border border-gray-300 p-2 w-full"
           placeholder="Enter your answer here..."
         ></textarea>
-      </>
+      </div>
     );
   };
 
   const Back = () => {
     return (
-      <div className="mt-8">
+      <div>
         <MDEditor.Markdown source={props.data.answer} />
       </div>
     );

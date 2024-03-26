@@ -44,14 +44,14 @@ const Header = () => {
                 );
               })}
             </div>
-            <div className="flex">
+            {/* <div className="flex">
               <a
                 className="py-[3px] px-[8px] border-2 border-[#61dafb] rounded hover:bg-[#61dafb] hover:text-black cursor-pointer"
                 href="/practice"
               >
                 <div>Practices</div>
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* <div className="flex gap-2">

@@ -2,6 +2,7 @@ import { IJSONCloze } from "@/interfaces/flashcard";
 
 import React, { useEffect, useState } from "react";
 import MDEditor from "@uiw/react-md-editor";
+import Question from "@/components/flashcard/Question"
 
 interface FlashCardClozeTypeProps {
   data: IJSONCloze;
@@ -38,9 +39,7 @@ const FlashCardClozeType = (props: FlashCardClozeTypeProps) => {
   return (
     <div>
       <div>
-        <p className="font-bold text-gray-700 text-2xl mb-4">
-          {props.data.question}
-        </p>
+        <Question question={props.data.question}/>
         <div className="text-gray-700 leading-4">
           {props.data.template.split(/<<(.*?)>>/).map((part, index) => {
             const inputSize = `w-[${part.length * 5}px]`;

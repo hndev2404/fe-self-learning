@@ -1,6 +1,7 @@
 import { IJSONSelect } from "@/interfaces/flashcard";
 import React, { useState } from "react";
 import MDEditor from "@uiw/react-md-editor";
+import Question from "@/components/flashcard/Question"
 
 export interface IFlashcardProps {
   data: IJSONSelect;
@@ -24,12 +25,7 @@ const FlashCardSelectType = (props: IFlashcardProps) => {
   const Front = () => {
     return (
       <div className="text-left">
-        <div className="flex gap-1 mb-2 text-2xl">
-          <p className="font-semibold" >{`100.`}</p>
-          
-          <p className="text-2xl">{props.data.question}</p>
-        </div>
-
+        <Question question={props.data.question}/>
         <div className="grid grid-cols-2 gap-2 w-fit">
         {props.data.options.map((option, index) => {
           return (
