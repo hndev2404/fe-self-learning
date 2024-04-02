@@ -7,8 +7,9 @@ export interface QuestionProps {
 
 const Question = (props: QuestionProps) => {
   return (
-    <div className="text-left mb-4">
-      <MDEditor.Markdown source={props.question} />
+    <div className="text-left mb-4 font-semibold text-xl">
+      {props.question}
+      {/* <MDEditor.Markdown source={props.question} /> */}
     </div>
   );
 };

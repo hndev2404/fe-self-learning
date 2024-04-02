@@ -9,7 +9,6 @@ export type EFlashCardType = "basic" | "select" | "typing" | "cloze";
 
 export interface IDesk {
   id: number;
-  parentId: number;
   name: string;
 }
 

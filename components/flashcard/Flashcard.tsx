@@ -28,11 +28,7 @@ const Flashcard = (props: IFlashcardProps) => {
   }
   return (
     <div
-      className={`flex flex-col gap-2 justify-between ${
-        isShowAnswer ? "mb-32" : ""
-      }`}
-      
-    >
+      className={`flex flex-col gap-2 justify-between mb-32`}>
       <div className="bg-white rounded-lg shadow-md p-4 cursor-pointer w-full min-h-[200px]">
         <div className="mb-4">Source: {props.desk.name}</div>
         <FlashCardType
