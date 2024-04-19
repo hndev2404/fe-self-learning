@@ -267,6 +267,401 @@ The difference between these is that double-quoted string cannot contain **newli
         }
     },
 
+    {
+        id: 11,
+        deskId: 1,
+        categories: "Workspace",
+        type: 'basic',
+        data: {
+            question: 'Explain packages in Go program?',
+            answer: `
+Every Go program is made up of packages. The program starts running in package main.
+`,
+        }
+    },
+
+    {
+        id: 12,
+        deskId: 1,
+        categories: "Workspace",
+        type: 'basic',
+        data: {
+            question: 'Golang Workspace Architecture.',
+            answer: `
+The Go Language uses a simplified workspace architecture that sets it apart from many other programming languages.
+
+The workspace essentially consists of three directories:
+- \`src\` This is where the source code resides.
+- \`pkg\` The pkg directory houses the package objects created during the build process. This segregation helps establish a clear distinction between the code the build output.
+- \`bin\` The directory where the compiled application will be located, once it’s been build.`,
+        }
+    },
+
+    {
+        id: 13,
+        deskId: 1,
+        categories: "Workspace",
+        type: 'basic',
+        data: {
+            question: 'Explain workspace in Go?',
+            answer: `
+Inside a workspace Go code must be kept. A workspace is a directory hierarchy with three directories at its root.
+
+The Go Language uses a simplified workspace architecture that sets it apart from many other programming languages.
+
+The workspace essentially consists of three directories:
+
+- \`src\` contians Go source files organized into packages
+- \`pkg\` The pkg directory houses the package objects created during the build process. This segregation helps establish a clear distinction between the code the build output.
+- \`bin\` The directory where the compiled application will be located, once it’s been build.
+`,
+        }
+    },
+
+    {
+        id: 14,
+        deskId: 1,
+        categories: "Workspace",
+        type: 'basic',
+        data: {
+            question: 'What is $GOPATH?',
+            answer: `
+The \`$GOPATH\` environment variable determines the location of the workspace. It is the only environment variable that you have to set when developing Go code.
+
+The \`$GOPATH\` environment variable plays a pivotal role. It is the starting point for finding Go code, and all the mentioned  
+
+Under the \`$GOPATH/src\` directory, the Go tool expects to see your application source packages.
+
+`,
+        }
+    },
+
+    {
+        id: 15,
+        deskId: 1,
+        categories: "Slices & Arrays",
+        type: 'basic',
+        data: {
+            question: 'What are slices in Go, and how do they differ form arrays?',
+            answer: `
+Arrays have **a fixed size** and cannot be resized at runtime, while slices are dynamic and can be resized as needed.
+
+Slices are **built on top** of arrays and provide a more convenient interface for working with collections of data.
+
+Slices in Go are **dynamic**, **flexible** and **reference-based data structures** that enable efficient list management. 
+They are built on top of arrays and offer features such as automatic resizing and ease of use.
+
+Slice Characteristics:
+- **Dynamic Sizing**
+- **Reference Semantics**: Underneath, slices reference an array, meaning any modifications to the slice apply to the referred array.
+`,
+        }
+    },
+
+    {
+        id: 16,
+        deskId: 1,
+        categories: "Slices & Arrays",
+        type: 'basic',
+        data: {
+            question: 'What mean “Go’s arrays are values” ?',
+            answer: `
+**An array variable** denotes the entire array; it is **not** a pointer to **the first array element** (as would be the case in C). 
+This means that when you assign or pass around an array value you will make a **copy** of its contents. 
+
+To avoid the copy you could pass a pointer to the array, but then that’s a pointer to an array, not an array.
+
+`,
+        }
+    },
+
+    {
+        id: 17,
+        deskId: 1,
+        categories: "Slices & Arrays",
+        type: 'basic',
+        data: {
+            question: 'What is difference between "length" and "capaity" in slices?',
+            answer: `
+The \`length\` is the number of elements refered to by the slice.
+The \`capacity\` is the number of elements in the underlying array.
+`,
+        }
+    },
+
+    {
+        id: 18,
+        deskId: 1,
+        categories: "Command",
+        type: 'basic',
+        data: {
+            question: '`go get` command',
+            answer: `
+This command is a critical tool for Golang developers. You can use it to fetch and manage dependencies from remote repositories like GitHub. 
+For instance, if you run go get \`github.com/gorilla/mux\`, it will fetch the mux package from GitHub and save it in your \`$GOPATH\`.
+
+Following the Go community’s best practices, ensure that you have \`go.mod\` and \`go.sum\` files at the root of your project.
+The \`go.mod\` file maintains module registration and dependency requirements, while the \`go.sum\` file records the version of the dependencies.
+`,
+        }
+    },
+
+    {
+        id: 19,
+        deskId: 1,
+        categories: "Garbage collector",
+        type: 'basic',
+        data: {
+            question: 'Explain how to garbage collector works in Go',
+            answer: `
+Go's garbage collector automatically frees memory that is no longer needed by the program.
+
+It uses **a mark-and-sweep algorithm** to find and remove unused memory.
+`,
+        }
+    },
+
+    {
+        id: 20,
+        deskId: 1,
+        categories: "Testing",
+        type: 'basic',
+        data: {
+            question: 'How you can do testing in GO?',
+            answer: `
+It has a lightweight testing framework consists fo the \`go test\` command and the **testing** package.
+
+To write a test you have to create a file with a name ending in \`_testing\`.
+
+Go which contains functions named TestXXX with signature \`func (t *testing T)\` .
+
+The test framwork runs each such function.
+`,
+        }
+    },
+
+    {
+        id: 21,
+        deskId: 1,
+        categories: "Error",
+        type: 'basic',
+        data: {
+            question: 'Error Handling',
+            answer: `
+Go has a unique approach to error handling compared to other languages. It uses explicit \`error\` return types.
+This design choice reduces ambiguity about functions that can potentially fail and obviates the need for try-catch blocks.
+
+The Go philosophy stresses **transparency** and **early reporting of issues**.
+
+In Go, errors are typically handled using the error interface.
+Functions that can return errors usually return **a tuple of the result and an error value**.
+Developers can then check the error value to see if an error occurred and handle it appropriately.
+`,
+        }
+    },
+
+    {
+        id: 22,
+        deskId: 1,
+        categories: "Variable/Scope",
+        type: 'basic',
+        data: {
+            question: 'Scope',
+            answer: `
+According to the language specification, **"Go is lexically scoped using blocks."** 
+
+Basically, this means that the variable exists within the nearest curly braces ({}), or block, including any nested curly braces (blocks), but not outside of them. 
+`,
+        }
+    },
+
+    {
+        id: 23,
+        deskId: 1,
+        categories: "Array, Slices, and Map",
+        type: 'basic',
+        data: {
+            question: 'Array',
+            answer: `
+An array is a numbered sequence of elements of a single type with a fixed length
+`,
+        }
+    },
+
+    {
+        id: 24,
+        deskId: 1,
+        categories: "Array, Slices, and Map",
+        type: 'basic',
+        data: {
+            question: 'Slices',
+            answer: `
+A slice is a segment of an array. Like arrays, slices are indexable and have a length.
+Unlike arrays, this length is allowed to change.
+
+In addition to the indexing operator, Go includes two built-in functions to assist with slices: \`append\` and \`copy\`.
+
+### append
+
+\`append\` adds elements onto the end of a slice. If there's sufficient capacity in the underlying arrray, the element is placed after the last element adn the length is incremented.
+
+However, if there is not sufficient capacity, a new array is created, all of the existing elements are copied over, the new element is added onto the end, and the new slice is returned.
+
+### copy
+copy takes two arguments: \`dst\` and \`src\`. All of the entries in \`src\` are copied into \`dst\` overwriting whatever is there.
+If the lengths of the two slices are not the same, the smaller of the two will be used.
+`,
+        }
+    },
+
+    {
+        id: 25,
+        deskId: 1,
+        categories: "Array, Slices, and Map",
+        type: 'basic',
+        data: {
+            question: 'Maps',
+            answer: `
+A *map* is an unordered collection of **key-value pairs** (maps are also sometimes called associative arrays, hash tables, or dictionaries).
+Maps are used to look up a value by its associated key.
+`,
+        }
+    },
+
+    {
+        id: 26,
+        deskId: 1,
+        categories: "Functions",
+        type: 'basic',
+        data: {
+            question: 'Variadic Functions',
+            answer: `
+There is a special form available for the last parameter in a Go functions:
+
+\`\`\`go
+func add(args ...int) int {
+    total := 0
+    for _, v := range args {
+        total += v
+    }
+    return total
+}
+
+func main() {
+    fmt.Println(add(1, 2, 3))
+}
+\`\`\`
+
+IN this example, add is allowed to be called with multiple integers. This is known as a *variadic parameter*.
+
+By using an ellipsis (...) before the type name of the last parameter, you can indicate that it takes zero or more of those parameters. In this case, we take zero or more ints.
+
+We invoke the function like any other function except we can pass as many ints as we want.
+
+We can also pass a slice of ints by following the slice with an ellipsis:
+\`\`\`go
+func main() {
+    sx := []int{1, 2, 3}
+    fmt.Println(add(xs...))
+}
+\`\`\`
+
+`,
+        }
+    },
+
+    {
+        id: 27,
+        deskId: 1,
+        categories: "Functions",
+        type: 'basic',
+        data: {
+            question: 'Closure',
+            answer: `
+It is possible to create functions inside of functions.
+
+\`\`\`go
+func main() {
+    add := func(x, y int) int {
+        return x + y
+    }
+    fmt.Println(add(1, 1))
+}
+\`\`\`
+
+When you create a local function like this, it also has access to other local variables.
+
+One way to use closure is by writing a function that returns another function, which when called, can generate a sequence of numbers.
+
+\`\`\`go
+func makeEvenGenerator() func() uint {
+    i := uint(0)
+    return func() (ret uint) {
+        ret = i
+        i += 2
+        return
+    }
+
+    func main() {
+        nextEven := makeEvenGenerator()
+        fmt.Println(nextEven()) // 0
+        fmt.Println(nextEven()) // 2
+        fmt.Println(nextEven()) // 4
+    }
+}
+\`\`\`
+
+**makeEvenGenerator** returns a function that generates even numbers. 
+Each time it's called, it adds 2 to the local i variable, which - unlike normal local variables - persists between calles.
+`,
+        }
+    },
+
+    {
+        id: 28,
+        deskId: 1,
+        categories: "Concurrency",
+        type: 'basic',
+        data: {
+            question: 'Concurrency',
+            answer: `
+Concurrency is the ability to execute more than one program or task simultaneously.
+
+Go has rich support for concurrency using \`goroutines\` and \`channels\`.
+
+## Goroutines
+
+A goroutine is a function that is capable of running concurrently with other functions. To create a goroutine, we use the keyword \`go\` foll owed by a function invocation.
+
+## Channels
+
+Channels provide a way for two goroutines to communicate with each other and synchronize their execution.
+
+A channel type is represented with the keyword chan followed by the type of the things that are passed on the channel.
+
+The left arrow operator \`<-\` is used to send and receive messages on the channel.
+
+### Channel Direction
+
+We can specify a direction on a channel type, thus restricting it to either sending or receiving.
+
+\`\`\`go
+func pinger(c chan <- string) // Only receiving
+func printer(c <- chan string) // Only sending
+\`\`\`
+
+A channel that doesn’t have these restrictions is known as bidirectional. 
+A bidirectional channel can be passed to a function that takes send-only or receive-only channels, but the reverse is not true.
+
+### Select
+
+Go has a special statement called \`select\` that works like a \`switch\` but not for channels.
+`,
+        }
+    },
+
+
+
 ];
 
 const backend = {
