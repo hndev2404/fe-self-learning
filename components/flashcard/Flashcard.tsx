@@ -30,7 +30,7 @@ const Flashcard = (props: IFlashcardProps) => {
     <div
       className={`flex flex-col gap-2 justify-between mb-32`}>
       <div className="bg-white rounded-lg shadow-md p-4 cursor-pointer w-full min-h-[200px]">
-        <div className="mb-4">Source: {props.desk.name}</div>
+      {props.card.categories && <div className="mb-4"><span className="font-bold">Category</span>: <span>{props.card.categories}</span></div>}
         <FlashCardType
           data={props.card.data}
           isShowAnswer={isShowAnswer}

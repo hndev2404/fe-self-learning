@@ -44,3 +44,7 @@ html {
 *,:after,:before {
   box-sizing: inherit
 }
+
+li {
+  list-style-type: disc;
+}

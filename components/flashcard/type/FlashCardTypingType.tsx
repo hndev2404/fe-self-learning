@@ -14,6 +14,7 @@ const FlashCardTypingType = (props: IFlashcardProps) => {
         <Question question={props.data.question}/>
         <textarea
           id="myTextarea"
+          autoFocus
           rows={10}
           className="border border-gray-300 p-2 w-full"
           placeholder="Enter your answer here..."

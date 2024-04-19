@@ -36,6 +36,7 @@ export interface IJSONCloze {
 
 export interface ICard {
   id: number;
+  categories?: string;
   deskId: number;
   type: EFlashCardType;
   data: IJSONBasic | IJSONSelect | IJSONTyping | IJSONCloze;
