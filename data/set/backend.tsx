@@ -7,7 +7,32 @@ const cards: ICard[] = [
         type: 'typing',
         data: {
             question: 'What is Data Structure & Algorithm ?',
-            answer: 'Cấu trúc dữ liệu là cách để tổ chức data trong máy tính để có thể sử dụng một cách hiệu quả. Thuật toán, là một tập hợp hữu hạn của các chỉ thị hay phương cách được định nghĩa rõ ràng cho việc hoàn tất một số sự việc từ một trạng thái ban đầu cho trước',
+            answer: `
+### Data Structures
+
+Linear
+
+- Arrays
+- Linked Lists
+- Stacks
+- Queues
+
+Non-Linear
+
+- Trees
+- Graphs
+- Tables
+- Sets
+
+### Algorithm
+
+Set of rules to obtain the epxected output from the given input.
+
+
+Cấu trúc dữ liệu là cách để tổ chức data trong máy tính để có thể sử dụng một cách hiệu quả. 
+
+Thuật toán, là một tập hợp hữu hạn của các chỉ thị hay phương cách được định nghĩa rõ ràng cho việc hoàn tất một số sự việc từ một trạng thái ban đầu cho trước
+            `,
         }
     },
     {

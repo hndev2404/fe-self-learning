@@ -660,7 +660,102 @@ Go has a special statement called \`select\` that works like a \`switch\` but no
         }
     },
 
+    {
+        id: 29,
+        deskId: 1,
+        categories: "Package",
+        type: 'basic',
+        data: {
+            question: 'Exported names',
+            answer: `
+In Go, a name is exported if it begins with **a capital letter**.
 
+When importing a package, you can refer only to its exported names. 
+Any **"unexported"** names are not accessible from outside the package.
+`,
+        }
+    },
+
+    {
+        id: 30,
+        deskId: 1,
+        categories: "Datatypes",
+        type: 'basic',
+        data: {
+            question: 'Type conversions',
+            answer: `
+The expression **T(v)** converts the value **v** to the type **T**
+
+Some numeric conversions:
+
+\`\`\`go
+var i int = 42
+var f float64 = float64(i)
+var u uint = uint(f)
+\`\`\`
+
+Or, put more simply:
+
+\`\`\`go
+i := 42
+f := float64(i)
+u := uint(f)
+\`\`\`
+
+`,
+        }
+    },
+
+    {
+        id: 31,
+        deskId: 1,
+        categories: "Datatypes",
+        type: 'basic',
+        data: {
+            question: 'Constants',
+            answer: `
+Constants are declared like variables, but with the \`const\` keyword.
+
+Constants can be character, string, boolean, or numeric values.
+
+Constatns ***CANNOT*** be declared using the \`:=\` syntax.
+            `,
+        }
+    },
+
+    {
+        id: 32,
+        deskId: 1,
+        categories: "Flow control statements",
+        type: 'basic',
+        data: {
+            question: 'What difference between `for` in Go with other languages like C, Java, or JS?',
+            answer: `
+Unlike other languages like C, Java, or JavaScript there are no parentheses surrounding the three components 
+of the \`for\` statement and the braces \`{}\` are **ALWAYS REQUIRED**
+
+### \`while\` loops
+
+At that point you can **drop** the semicolons.
+\`\`\`go
+sum := 1
+for sum < 200 {
+    sum += sum
+}
+\`\`\`
+
+### Forever
+If you omit the loop condition it loops forever, so an infinite loop is compactly expressed.
+
+\`\`\`go
+sum := 1
+for {
+    // forever
+}
+\`\`\`
+            `,
+        }
+    },
 
 ];
 
