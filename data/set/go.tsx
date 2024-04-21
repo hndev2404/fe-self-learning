@@ -4,10 +4,24 @@ const cards: ICard[] = [
     {
         id: 0,
         deskId: 1,
+        categories: "Common",
         type: 'basic',
         data: {
             question: 'Difference between := and = operators in Go',
-            answer: 'In Go, `:=` is for declaration AND assignment, whereas `=` is for assignment only.\nFor example, `var foo int = 10` is the same as `foo := 10`.',
+            answer: `
+In Go, \`:=\` is for **declaration** and **assignment**, whereas \`=\` is for **assignment only**.
+
+For example, \`var foo int = 10\` is the same as \`foo := 10\`.
+
+\`\`\`
+declaration: /ˌdekləˈreɪʃn/
+assignment: /əˈsaɪnmənt/
+colon-equal: /ˈkəʊlən/ /ˈiːkwəl/
+operator: /ˈɑːpəreɪtər/
+difference: /ˈdɪfrəns/
+between: /bɪˈtwiːn/
+\`\`\`
+`,
         }
     },
     {
@@ -17,17 +31,12 @@ const cards: ICard[] = [
         data: {
             question: 'What is Go?',
             answer: `
-Go is an open source programming language which makes it easy to build **simple**, **reliable** and **efficient** software. 
+Go is **an open source programming language** which makes it easy to build **simple**, **reliable** and **efficient** software. 
 
 Programs are constructed from **packages**, whose properties allow efficient management of dependencies.
 
-***Key Objective***
-- **Simplicity**: Go was designed with a minimalistic approach to minimize complexity.
-- **Efficiency**: It was crucial for Go to be efficient and expressive in both time and space.
-- **Safety**: The creators aimed to make Go a safe, statically-typed language: \`go routines\` and \`channels\`
-- **Concurrent Programming**: Go’s design intends to make concurrent programming pragmatic and straigntforward.
-
 ***Key Features***
+
 - **Open Source**
 - **Statically Typed**: Like Java and C++, Go requires you to specify types of variables and function return values explictly. These types are checked at compile-time for safety and accuracy.
 - **Memory Management**: Go developers don’t have to deal with low-level memory operations like C/C++. Instead, Go uses a garbage collector to release memory from objects that aren’t in use.
@@ -753,6 +762,198 @@ for {
     // forever
 }
 \`\`\`
+            `,
+        }
+    },
+
+    {
+        id: 33,
+        deskId: 1,
+        categories: "Flow control statements",
+        type: 'basic',
+        data: {
+            question: 'What is `go.mod` and `go.sum` ?',
+            answer: `
+Following the Go community’s best practices, ensure that you have \`go.mod\` and \`go.sum\` files at the root of your project.
+
+The \`go.mod\` file **maintains module registration and dependency requirements**, while the \`go.sum\` file records **the version of the dependencies**.
+            `,
+        }
+    },
+
+    {
+        id: 34,
+        deskId: 1,
+        categories: "Methods",
+        type: 'basic',
+        data: {
+            question: 'Methods',
+            answer: `
+Go does not have **classes**. However, you can define methods on types.
+
+A method is a function with a special *receiver* argument.
+
+For example,
+
+\`\`\`go
+type Vertex struct {
+    X, Y float64
+}
+
+func (v Vertex) Abs() float64 {
+    return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+\`\`\`
+
+The ***Abs*** method has a receiver op type \`Vertex\` named \`v\`.
+
+Other, you can declare a method on non-struct types, too
+\`\`\`go
+type MyFloat float64
+
+func (f MyFloat) Abs() float64 {
+	if f < 0 {
+		return float64(-f)
+	}
+	return float64(f)
+}
+\`\`\`
+
+**Note**:
+* Cannot define new methods on non-local type
+
+\`\`\`go
+func (f float64) Abs() float64 {
+	if f < 0 {
+		return float64(-f)
+	}
+	return float64(f)
+}
+// ./prog.go:8:7: cannot define new methods on non-local type float64
+
+\`\`\`
+            `,
+        }
+    },
+
+    {
+        id: 35,
+        deskId: 1,
+        categories: "Methods",
+        type: 'basic',
+        data: {
+            question: 'Methods vs Functions?',
+            answer: `
+Remember: a method is just a function with ***a receiver argument***
+            `,
+        }
+    },
+
+    {
+        id: 36,
+        deskId: 1,
+        categories: "Methods",
+        type: 'basic',
+        data: {
+            question: 'Choosing a value or pointer receiver?',
+            answer: `
+There are two reasons to use a pointer receiver.
+- The first is so that the method can modify the value that its receiver points to.
+- The second is to avoid copying the value on each method call. This can be more efficient if the receiver is a large struct.
+
+In general, **all methods** on a given type should have either value or pointer receivers, but **NOT** a mixture of both.
+            `,
+        }
+    },
+
+
+    {
+        id: 37,
+        deskId: 1,
+        categories: "Interfaces",
+        type: 'basic',
+        data: {
+            question: 'Interfaces?',
+            answer: `
+An *interface* type is defined as a set of method signatures.
+
+A value of interface type can hold any value that implements those methods.
+            `,
+        }
+    },
+
+    {
+        id: 38,
+        deskId: 1,
+        categories: "Interfaces",
+        type: 'basic',
+        data: {
+            question: 'Interface values?',
+            answer: `
+Under the hood, interface values can be thought of as a tuple of a value and a concrete type:
+
+\`\`\`
+(value, type)
+\`\`\`
+
+An interface value holds a value of a specific underlying concrete type.
+
+Calling a method on an interface value executes the method of the same name on its underlying type.
+
+            `,
+        }
+    },
+
+    {
+        id: 39,
+        deskId: 1,
+        categories: "Interfaces",
+        type: 'basic',
+        data: {
+            question: 'The empty interface',
+            answer: `
+The interface type that specifies zero methods is known as the *empty interface*
+
+\`\`\`
+interface{}
+\`\`\`
+
+An empty interface may hold values of any type. (Every type implements at least zeor methods)
+
+Empty interfaces are used by code that handles values of unknown type.
+
+For example, \`fmt.Print\` takes any number of arguments of type interfaces.
+
+
+            `,
+        }
+    },
+
+    {
+        id: 40,
+        deskId: 1,
+        categories: "Concurrency",
+        type: 'basic',
+        data: {
+            question: 'What is "Buffered Channels"?',
+            answer: `
+Channels can be *buffered*. Provide the buffer length as the second argument to \`make\` to initialize a buffered channel.
+
+\`\`\`
+ch := make(chan int, 100)
+\`\`\`
+
+Sends to a buffered channel block only when the buffer is full. Receivers block when the buffer is empty.
+
+Error buffered channels is **FULL**
+
+* \`fatal error: all goroutines are asleep - deadlock!\`
+
+Error buffered channels is **EMPTY**
+
+* \`fatal error: all goroutines are asleep - deadlock!\`
+
+
             `,
         }
     },
