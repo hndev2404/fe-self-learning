@@ -11,7 +11,11 @@ const cards: ICard[] = [
             answer: `
 **INNER JOIN**
 
-**OUTER JOIN**
+**OUTER JOIN**: LEFT JOIN + RIGHT JOIN
+
+A \`LEFT JOIN\` is absolutely not faster than an \`INNER JOIN\`. 
+In fact, it's slower; by definition, an outer join (\`LEFT JOIN\` + \`RIGHT JOIN\`) has no do all the work of an INNER JOIN plus the extra work of null-extending the result.
+It would also be expected to return more rows, further increasing the total execution time simply due to the large size of the result set.
 `,
         }
     },
@@ -59,16 +63,15 @@ You can also pass parameters to a stored procedure, so that the stored procedure
 | **Feature**                | **SQL Database**                         | **NoSQL Databases**                                                                                                      |
 |----------------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | **Fey Focus**              | Reducing data duplication                | Scaling and rapid application change                                                                                     |
-| **Data Storage Model**     | Tables with fixed rows and colums        | Document: JSON documents Tables with rows and dynamic columns                                                            |
-| **Schemas**                | Regid                                    | Flexible                                                                                                                 |
-| **Data to Object Mapping** | Requires ORM (object-relational mapping) | Typically doesn;t required ORMs.  E.g MongoDB documents map directly to data structures in popular programing languages. |
+| **Data Storage Model**     | Tables with fixed rows and colums        | Document, Key-value, Wide column, Graph                                                            |
+| **Schemas**                | Rigid                                    | Flexible                                                                                                                 |
 | **Scaling**                | Verical                                  | Horizontal                                                                                                               |
 
 Popular noSQL:
-* MongoDB
-* Google BigTable
-* DynamoDB
-* Cassdandra
+- Document database: MongoDB, CouchDB...
+- Key - value store: Redis, LevelDB, RocksDB...
+- Wide column: Cassandra, Bigtable, HBase...
+- Graph database: JanusGraph, Neo4j, TigerGraph...
 `,
         }
     },
@@ -251,6 +254,82 @@ Như vậy, để lấy được một list kết quả thỏa yêu cầu trên,
 **REF:**
 - https://blog.appsignal.com/2020/06/09/n-plus-one-queries-explained.html
 - https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping
+
+            `,
+        }
+    },
+
+    {
+        id: 11,
+        deskId: 2,
+        type: 'typing',
+        data: {
+            question: 'Relation in NoSQL?',
+            answer: `
+Chúng ta thường nghe và hiểu NoSQL hay no-relational database nghĩa là nói về việc các collections (Document database) không có mối quan hệ nào với nhau (phi quan hệ), 
+ngược lại với SQL. 
+
+Vậy nếu mối quan hệ **User - Order - Product** như ví dụ trên với SQL thì thể hiện trong NoSQL như thế nào vì trong thực tế cả 3 vẫn có mối liên quan đến nhau?
+
+Trên lí thuyết, ta vẫn có thể set up relation giữa các document giống như SQL bằng cách thêm foreign key. 
+
+Nhưng vấn đề là không thể sử dụng SQL để join và query data được nên việc tạo FK như vậy làm sai lệch đi bản chất của NoSQL là no-relation.
+
+Idea để giải quyết vấn đề này của NoSQL là gom nhóm các data có liên quan với nhau vào **cùng một chỗ và chấp nhận việc duplicate**.
+
+No silver bullet, chẳng có gì là hoàn hảo, 
+và cũng chính **ưu điểm trên là nhược điểm** của NoSQL, 
+phải chấp nhận data bị duplicate ở nhiều nơi. Update product data ở Product cũng kéo theo việc update product ở Order.
+
+> Nhưng nếu việc update hiếm khi xảy ra, và là read heavy (read nhiều hơn write) thì nó vẫn là một điều tuyệt vời ông mặt zời.
+> Một lưu ý nữa không phải là hoàn toàn không có relation, sẽ có những trường hợp vẫn cần relation nhưng cần hạn chế nhất có thể (no relation or less relation as possible).
+
+            `,
+        }
+    },
+
+    {
+        id: 12,
+        deskId: 2,
+        type: 'basic',
+        data: {
+            question: 'Xem xét SQL Query sau đây',
+            answer: `
+\`\`\`sql
+-- #SQL1
+SELECT count(*) AS total FROM orders;
+-- total=100
+
+-- #SQL2
+SELECT count(*) AS cust_123_total FROM orders WHERE customer_id = '123';
+-- total=15
+
+-- #SQL3
+SELECT count(*) AS cust_123_total FROM orders WHERE customer_id != '123';
+-- total=?
+\`\`\`
+
+
+Câu trả lời là 85 (tức là 100 - 15). 
+
+Tuy nhiên, không phải lúc nào đó cũng là câu trả lời đúng. 
+Cụ thể, bất kỳ bản ghi nào có customer_id là **NULL** sẽ không được bao gồm trong cả hai **SQL#2 & SQL#3**
+
+Ví dụ: nếu một trong 100 khách hàng có **1** customer_id là NULL, kết quả của truy vấn cuối cùng sẽ là: **85 - 1 = 84** (NULL)
+
+            `,
+        }
+    },
+
+    {
+        id: 13,
+        deskId: 2,
+        type: 'basic',
+        data: {
+            question: 'LIKE vs Full-Text Search',
+            answer: `
+While LIKE offers 100% precision, it may need more recall, meaning it might miss relevant results. In contrast, full-text search allows for more flexibility, offering a trade-off between precision and recall based on configured parameters.Feb 8, 2024
+
 
             `,
         }
