@@ -12,6 +12,10 @@ export const practices = [
                 id: 1,
                 name: "Go Lang",
             },
+            {
+                id: 2,
+                name: "Database"
+            },
         ]
     },
 ]
