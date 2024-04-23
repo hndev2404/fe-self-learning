@@ -5,7 +5,7 @@ const cards: ICard[] = [
         id: 0,
         deskId: 1,
         categories: "Common",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Difference between := and = operators in Go',
             answer: `
@@ -27,25 +27,22 @@ between: /bɪˈtwiːn/
     {
         id: 1,
         deskId: 1,
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What is Go?',
             answer: `
-Go is **an open source programming language** which makes it easy to build **simple**, **reliable** and **efficient** software. 
-
-Programs are constructed from **packages**, whose properties allow efficient management of dependencies.
+Go is **an open source programming language** which makes it easy to build **simple**, **secure** and **scalable** system. 
 
 ***Key Features***
-
-- **Open Source**
-- **Statically Typed**: Like Java and C++, Go requires you to specify types of variables and function return values explictly. These types are checked at compile-time for safety and accuracy.
-- **Memory Management**: Go developers don’t have to deal with low-level memory operations like C/C++. Instead, Go uses a garbage collector to release memory from objects that aren’t in use.
-- **Concurrent Programming**: Go directly supports concurrent operations through the use of goroutines and channels.
-- **Portability**: Go was designed to be compatible with multiple systems and architectures.
-- **Concise Error Handling**: Go’s single error return value, supplemented by its \`errors\` package, makes error handling compact and straightforward.
-- **GoDoc for Documentation**: GoDoc automates code documentation, enhancing code maintainability and developer collaboration.
-- **Full Support for Unicode**: Go treats text as Unicode by default, ensuring internationalization and text processing are seamless
-
+- Open Source
+- Static Type
+- Garbage Collection: \`goroutine\`, \`channel\`, \`mutex\`.
+- Concurrent Programming
+- Powerful Standard Library and Tool Set
+- Testing Capabilities: Go support a built-in testing framwork.
+- Faster Compilation and Execution: 
+    - In Golang development environment, there is no Virtual Machine. 
+    - The code is directly compiled to machine code, which makes the compliation process faster and more effective.
             `,
         }
     },
@@ -53,19 +50,32 @@ Programs are constructed from **packages**, whose properties allow efficient man
         id: 2,
         deskId: 1,
         categories: "Common",
-        type: 'basic',
+        type: 'typing',
         data: {
-            question: 'What are the differences between GO and other programming languages?',
+            question: 'Go `package`, `module`?',
             answer: `
-Go emphasizes **simplicity** and **efficient concurrency**, and its syntax is similar to C. Unlike some other languages, it has a **garbage collector** and **a built-in testing framework**.
-            `,
+Go package:
+> Go programs are organized into **packages**. A package is a collection of source files in the same directory that are compiled together.
+> Functions, types, variables, and constants defined in one source file are visible to all other source files within the same package.
+
+Go module:
+
+- A repository contains one or more modules. 
+- A \`module\` is a collection of related Go packages that are released together. 
+- A Go repository **typically contains only one module**, located at the root of the repository. 
+- A file named \`go.mod\` there declares the module path: the import path prefix for all packages within the module. 
+- The module contains the packages in the directory containing its \`go.mod\` file as well as subdirectories of that directory, up to the next subdirectory containing another go.mod file (if any).
+
+References: 
+- [How to Write Go Code](https://go.dev/doc/code)
+`,
         }
     },
     {
         id: 3,
         deskId: 1,
         categories: "Function",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Explain the purpose of `defer` in Go',
             answer: `
@@ -89,7 +99,7 @@ This has three advantages:
         id: 4,
         deskId: 1,
         categories: "Function",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Explain the purpose of `panic` & `recover` in Go',
             answer: `
@@ -114,7 +124,7 @@ func main() {
         id: 5,
         deskId: 1,
         categories: "Common",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What are the advantages/disadvantages of Go?',
             answer: `
@@ -124,7 +134,7 @@ func main() {
 - Go has garbage collection
 
 **Disadvantages**:
-
+- It's a young language
             `,
         }
     },
@@ -133,21 +143,23 @@ func main() {
         id: 6,
         deskId: 1,
         categories: "Common",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What is Blank Identifier(underscore) in Golang?',
             answer: `
+
+**_** (underscore) in Golang is known as the Blank Identifier. 
+
 The Go compiler won't allow you to create variables that you never use.
 
 **The blank identifier** is used to tell the compiler that we don't need this.
 
-_(underscore) in Golang is known as the Blank Identifier. 
+**Use case**
 
-Identifiers are the user-defined name of the program components used for the identification purpose. 
-
-Golang has a special feature to define and use the unused variable using Blank Identifier. Unused variables are those variables that are defined by the user throughout the program but he/she never makes use of these variables. These variables make the program almost unreadable. As you know, Golang is a more concise and readable programming language so it doesn’t allow the programmer to define an unused variable if you do such, then the compiler will throw an error. 
-
-The real use of Blank Identifier comes when a function returns multiple values, but we need only a few values and want to discard some values. Basically, it tells the compiler that this variable is not needed and ignored it without any error. It hides the variable’s values and makes the program readable. So whenever you will assign a value to Blank Identifier it becomes unusable.
+- The real use of Blank Identifier comes when **a function returns multiple values**, but we need **only a few values** and **want to discard some values**. 
+- Typically, it tells the compiler that this variable is not needed and ignored it without any error. 
+It hides the variable’s values and makes the program readable. 
+So whenever you will assign a value to Blank Identifier it becomes unusable.
             `,
         }
     },
@@ -156,9 +168,9 @@ The real use of Blank Identifier comes when a function returns multiple values, 
         id: 7,
         deskId: 1,
         categories: "Datatypes",
-        type: 'basic',
+        type: 'typing',
         data: {
-            question: 'Explain the basic data types in Go?',
+            question: 'Explain the typing data types in Go?',
             answer: `
 Go provides a robust set of data types, addressing various data needs efficiently.
 
@@ -194,13 +206,13 @@ Derived/Special Types
         id: 8,
         deskId: 1,
         categories: "Datatypes",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What is the zero value of a variable in Go?',
             answer: `
 In Go, variables automatically initialize to their zero values if not explicity set.
 
-**Basic Types**
+**typing Types**
 
 - **Bool**: \`false\`
 - **Numeric Types** (int, float, and their variations): \`0\`
@@ -224,11 +236,11 @@ In Go, variables automatically initialize to their zero values if not explicity 
         id: 9,
         deskId: 1,
         categories: "Datatypes",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Expain Numbers in Go',
             answer: `
-Go has several difference types to represent numbers. Generally, we split numbers into two difference kinds: integers and floating-point number.
+Go has several difference types to represent numbers. Generally, we split numbers into two difference kinds: ***integers*** and ***floating-point number***.
 
 ### Integers
 
@@ -265,7 +277,7 @@ Go supports the following standard arithmetic operators:
         id: 10,
         deskId: 1,
         categories: "Datatypes",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What difference between double quotes "" and backticks `` in string?',
             answer: `
@@ -280,7 +292,7 @@ The difference between these is that double-quoted string cannot contain **newli
         id: 11,
         deskId: 1,
         categories: "Workspace",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Explain packages in Go program?',
             answer: `
@@ -293,7 +305,7 @@ Every Go program is made up of packages. The program starts running in package m
         id: 12,
         deskId: 1,
         categories: "Workspace",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Golang Workspace Architecture.',
             answer: `
@@ -310,7 +322,7 @@ The workspace essentially consists of three directories:
         id: 13,
         deskId: 1,
         categories: "Workspace",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Explain workspace in Go?',
             answer: `
@@ -331,7 +343,7 @@ The workspace essentially consists of three directories:
         id: 14,
         deskId: 1,
         categories: "Workspace",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What is $GOPATH?',
             answer: `
@@ -349,7 +361,7 @@ Under the \`$GOPATH/src\` directory, the Go tool expects to see your application
         id: 15,
         deskId: 1,
         categories: "Slices & Arrays",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What are slices in Go, and how do they differ form arrays?',
             answer: `
@@ -371,7 +383,7 @@ Slice Characteristics:
         id: 16,
         deskId: 1,
         categories: "Slices & Arrays",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What mean “Go’s arrays are values” ?',
             answer: `
@@ -388,7 +400,7 @@ To avoid the copy you could pass a pointer to the array, but then that’s a poi
         id: 17,
         deskId: 1,
         categories: "Slices & Arrays",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What is difference between "length" and "capaity" in slices?',
             answer: `
@@ -402,7 +414,7 @@ The \`capacity\` is the number of elements in the underlying array.
         id: 18,
         deskId: 1,
         categories: "Command",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: '`go get` command',
             answer: `
@@ -419,7 +431,7 @@ The \`go.mod\` file maintains module registration and dependency requirements, w
         id: 19,
         deskId: 1,
         categories: "Garbage collector",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Explain how to garbage collector works in Go',
             answer: `
@@ -434,17 +446,14 @@ It uses **a mark-and-sweep algorithm** to find and remove unused memory.
         id: 20,
         deskId: 1,
         categories: "Testing",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'How you can do testing in GO?',
             answer: `
-It has a lightweight testing framework consists fo the \`go test\` command and the **testing** package.
+Go has a lightweight test framework composed of the \`go test\` command and the \`testing\` package.
 
-To write a test you have to create a file with a name ending in \`_testing\`.
-
-Go which contains functions named TestXXX with signature \`func (t *testing T)\` .
-
-The test framwork runs each such function.
+You write a test by creating a file with a name ending in \`_test.go\` that contains functions named \`TestXXX\` with signature \`func (t *testing.T)\`. 
+The test framework runs each such function; if the function calls a failure function such as \`t.Error\` or \`t.Fail\`, the test is considered to have failed.
 `,
         }
     },
@@ -453,7 +462,7 @@ The test framwork runs each such function.
         id: 21,
         deskId: 1,
         categories: "Error",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Error Handling',
             answer: `
@@ -473,13 +482,13 @@ Developers can then check the error value to see if an error occurred and handle
         id: 22,
         deskId: 1,
         categories: "Variable/Scope",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Scope',
             answer: `
 According to the language specification, **"Go is lexically scoped using blocks."** 
 
-Basically, this means that the variable exists within the nearest curly braces ({}), or block, including any nested curly braces (blocks), but not outside of them. 
+typingally, this means that the variable exists within the nearest curly braces ({}), or block, including any nested curly braces (blocks), but not outside of them. 
 `,
         }
     },
@@ -488,7 +497,7 @@ Basically, this means that the variable exists within the nearest curly braces (
         id: 23,
         deskId: 1,
         categories: "Array, Slices, and Map",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Array',
             answer: `
@@ -501,7 +510,7 @@ An array is a numbered sequence of elements of a single type with a fixed length
         id: 24,
         deskId: 1,
         categories: "Array, Slices, and Map",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Slices',
             answer: `
@@ -527,7 +536,7 @@ If the lengths of the two slices are not the same, the smaller of the two will b
         id: 25,
         deskId: 1,
         categories: "Array, Slices, and Map",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Maps',
             answer: `
@@ -541,7 +550,7 @@ Maps are used to look up a value by its associated key.
         id: 26,
         deskId: 1,
         categories: "Functions",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Variadic Functions',
             answer: `
@@ -583,7 +592,7 @@ func main() {
         id: 27,
         deskId: 1,
         categories: "Functions",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Closure',
             answer: `
@@ -630,7 +639,7 @@ Each time it's called, it adds 2 to the local i variable, which - unlike normal 
         id: 28,
         deskId: 1,
         categories: "Concurrency",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Concurrency',
             answer: `
@@ -673,7 +682,7 @@ Go has a special statement called \`select\` that works like a \`switch\` but no
         id: 29,
         deskId: 1,
         categories: "Package",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Exported names',
             answer: `
@@ -689,7 +698,7 @@ Any **"unexported"** names are not accessible from outside the package.
         id: 30,
         deskId: 1,
         categories: "Datatypes",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Type conversions',
             answer: `
@@ -719,7 +728,7 @@ u := uint(f)
         id: 31,
         deskId: 1,
         categories: "Datatypes",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Constants',
             answer: `
@@ -736,7 +745,7 @@ Constatns ***CANNOT*** be declared using the \`:=\` syntax.
         id: 32,
         deskId: 1,
         categories: "Flow control statements",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What difference between `for` in Go with other languages like C, Java, or JS?',
             answer: `
@@ -770,7 +779,7 @@ for {
         id: 33,
         deskId: 1,
         categories: "Flow control statements",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What is `go.mod` and `go.sum` ?',
             answer: `
@@ -785,7 +794,7 @@ The \`go.mod\` file **maintains module registration and dependency requirements*
         id: 34,
         deskId: 1,
         categories: "Methods",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Methods',
             answer: `
@@ -840,7 +849,7 @@ func (f float64) Abs() float64 {
         id: 35,
         deskId: 1,
         categories: "Methods",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Methods vs Functions?',
             answer: `
@@ -853,7 +862,7 @@ Remember: a method is just a function with ***a receiver argument***
         id: 36,
         deskId: 1,
         categories: "Methods",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Choosing a value or pointer receiver?',
             answer: `
@@ -871,7 +880,7 @@ In general, **all methods** on a given type should have either value or pointer 
         id: 37,
         deskId: 1,
         categories: "Interfaces",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Interfaces?',
             answer: `
@@ -886,7 +895,7 @@ A value of interface type can hold any value that implements those methods.
         id: 38,
         deskId: 1,
         categories: "Interfaces",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'Interface values?',
             answer: `
@@ -908,7 +917,7 @@ Calling a method on an interface value executes the method of the same name on i
         id: 39,
         deskId: 1,
         categories: "Interfaces",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'The empty interface',
             answer: `
@@ -933,7 +942,7 @@ For example, \`fmt.Print\` takes any number of arguments of type interfaces.
         id: 40,
         deskId: 1,
         categories: "Concurrency",
-        type: 'basic',
+        type: 'typing',
         data: {
             question: 'What is "Buffered Channels"?',
             answer: `
@@ -952,6 +961,35 @@ Error buffered channels is **FULL**
 Error buffered channels is **EMPTY**
 
 * \`fatal error: all goroutines are asleep - deadlock!\`
+
+
+            `,
+        }
+    },
+
+    {
+        id: 41,
+        deskId: 1,
+        categories: "Struct",
+        type: 'typing',
+        data: {
+            question: 'Embedding field in struct?',
+            answer: `
+
+\`\`\`go
+type Person struct {
+    name string
+    age int
+    sex bool
+ }
+ 
+ type Employee struct {
+     Person
+     salary int
+ }
+ \`\`\`
+
+ Vi dụ trên cho thấy rằng trong struct Employee được nhúng trường Person là một struct khác vào, như vậy làm cho struct Employee sẽ có trường (fields) bao gồm như sau: name, age, sex và salary. Nói một cách khác là tất cả trường trong struct Person sẽ được dùng trong struct Employee được. Chúng ta có thể sử dụng struct Employee như sau:
 
 
             `,

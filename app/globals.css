@@ -48,3 +48,7 @@ html {
 li {
   list-style-type: disc;
 }
+
+li > * > li {
+  list-style-type: circle;
+}
