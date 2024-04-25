@@ -1,10 +1,8 @@
-import { backend } from "./set/backend";
-import { devops } from "./set/devops";
-import { database } from "./set/database";
+import backend from "./set/backend";
+import go from "./set/go";
 
 
 export const flashcards = [
     backend,
-    devops,
-    database,
+    go,
 ]

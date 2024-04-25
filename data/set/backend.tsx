@@ -153,12 +153,10 @@ const cards: ICard[] = [
 ];
 
 const backend = {
-    desks: [
-        {
-            id: 0,
-            name: 'Backend',
-        }
-    ],
+    desk: {
+        id: 0,
+        name: 'Backend',
+    },
     cards
 };
 

@@ -15,13 +15,13 @@ export default function PracticeDetailPage({ params }: { params: { id: number } 
   console.log("🚀 ~ onPressAction ~ action:", action)
   console.log("🚀 ~ onPressAction ~ cardId:", cardId)
   console.log("🚀 ~ onPressAction ~ deskId:", deskId)
-    // setIndex((index + 1) % (TOEICCards.length));
+    setIndex((index + 1) % (flashcards[params.id].cards.length));
   }
   return (
     <div className="flex justify-center">
       <Container>
         <div></div>
-        {/* <Title title={`Luyện tập: ${TOEICDesk.name}`}/> */}
+        <Title title={`Lương trăm củ`}/>
         <Flashcard desk={flashcards[params.id].desk} card={flashcards[params.id].cards[index]} onPressAction={onPressAction} />
       </Container>
     </div>
