@@ -11,7 +11,6 @@ const FlashCardTypingType = (props: IFlashcardProps) => {
   const Front = () => {
     return (
       <div>
-        <Question question={props.data.question}/>
         <textarea
           id="myTextarea"
           autoFocus
@@ -33,7 +32,8 @@ const FlashCardTypingType = (props: IFlashcardProps) => {
 
   return (
     <div className="flex flex-col">
-      <Front />
+      <Question question={props.data.question}/>
+      {!props.isShowAnswer && <Front />}
       <hr className="border-t border-gray-500 my-4" />
       {props.isShowAnswer && <Back />}
     </div>
