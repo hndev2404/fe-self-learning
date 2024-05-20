@@ -14,7 +14,7 @@ const Header = () => {
   const pathname = usePathname();
 
   const headerItems: IHeaderItem[] = [
-    // { label: "TOEIC",  href: "/toeic", isSelected: pathname == "/toeic" },
+    { label: "English",  href: "/english", isSelected: pathname == "/english" },
     // { label: "IPA", href: "/ipa", isSelected: pathname == "/ipa" },
     // { label: "Technical", href: "/technical", isSelected: pathname == "/technical" },
   ];
